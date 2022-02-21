@@ -40,4 +40,16 @@ public class Order implements Comanda{
     public void  updateTotal(Double newTotal) {
         this.total = newTotal;
     }
+
+    @Override
+    public void display() {
+        StringBuilder output = new StringBuilder();
+
+        for(Item orderValue : itemList()) {
+            output.append(orderValue.name()).append("....").append(orderValue.price().toString()).append("$").append("\n");
+        }
+
+        System.out.print(output.toString());
+
+    }
 }
