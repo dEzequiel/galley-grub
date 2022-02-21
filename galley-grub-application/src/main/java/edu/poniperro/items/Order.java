@@ -31,4 +31,10 @@ public class Order implements Comanda{
         return this.itemList().size();
     }
 
+    @Override
+    public Double getTotal() {
+        return this.total;
+    }
+    
+
 }
