@@ -21,4 +21,14 @@ public class Order implements Comanda{
         items.add(item);
     }
 
+    @Override
+    public List<Item> itemList() {
+        return this.items;
+    }
+
+    @Override
+    public int size() {
+        return this.itemList().size();
+    }
+
 }
