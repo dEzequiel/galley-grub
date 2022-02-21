@@ -15,4 +15,10 @@ public class Order implements Comanda{
         items.add(item);
     }
 
+    @Override
+    public void addItem(String name, Double price, String extra) {
+        Item item = new Item(name, price, extra);
+        items.add(item);
+    }
+
 }
