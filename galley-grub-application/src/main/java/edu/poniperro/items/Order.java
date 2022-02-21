@@ -35,6 +35,9 @@ public class Order implements Comanda{
     public Double getTotal() {
         return this.total;
     }
-    
 
+    @Override
+    public void  updateTotal(Double newTotal) {
+        this.total = newTotal;
+    }
 }
