@@ -1,6 +1,7 @@
 package edu.poniperro.items;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
@@ -17,6 +18,8 @@ public class OrderTest {
         order.addItem("Coral Bits", 1.00);
 
         assertEquals(2, order.size());
+
+        assertNotNull(order.itemList());
 
     }
 
