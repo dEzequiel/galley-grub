@@ -1,9 +1,9 @@
 package edu.poniperro.galleygrub.items;
 
-public class Item implements Product{
+public class Item implements Product {
     private String name;
     private Double price;
-    private String extra;
+    private String extra = null;
 
     public Item(String name, Double price) {
         this.name = name;
@@ -31,16 +31,28 @@ public class Item implements Product{
         return this.extra;
     }
 
-    // @Override
-    // public Boolean isRegular()
+    @Override
+    public Boolean isRegular() {
+        return this.extra == null;
+    }
 
     @Override
     public String toString() {
+
+        // init extras prices dict to get key
+        Prices.initPricesDict();
+
         StringBuilder output = new StringBuilder();
 
-        output.append(this.name).append("....").append(this.price().toString());
+        if (this.isRegular()) {
+            output.append(this.name).append("....").append(this.price().toString()).append("$");
+            return output.toString();
+        } else {
+            output.append(this.name).append(" w/ ").append(this.extra).append("....").append(this.price().toString()).append("$").append(" + ").append(Prices.getPricesDict().get(extra())).append("$");
+            return output.toString();
+        }
 
-        return output.toString();
+
     }
 
 }
