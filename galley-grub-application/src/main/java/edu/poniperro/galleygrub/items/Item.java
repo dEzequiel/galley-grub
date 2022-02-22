@@ -56,7 +56,26 @@ public class Item implements Product {
     // The default implementation of equals() in the class Object says that equality
     // is the same as object identity. And income and expenses are two distinct instances.
 
-    // public boolean equals(Item item) {};
+    // The two objects will be equal if they share the same memory address.
+
+    // Objects are equal when they have the same state (usually comparing variables). Objects are identical when they share the class identity.
+    // For example, the expression obj1==obj2 tests the identity, not equality. While the expression obj1.equals(obj2) compares equality.
+
+    public boolean equals(Object obj) {
+        // Are the same?
+        if (this == obj) {
+            return true;
+        }
+        // obj is a null reference
+        if (obj == null) {
+            return false;
+        }
+        // different objects classes
+        if (this.getClass() != obj.getClass()) {
+            return false;
+        }
+        return this.name() == ((Item) obj).name();
+    };
 
     // hashCode() returns an integer representing the current instance of the class.
     @Override
