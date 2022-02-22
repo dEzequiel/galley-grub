@@ -51,8 +51,17 @@ public class Item implements Product {
             output.append(this.name).append(" w/ ").append(this.extra).append("....").append(this.price().toString()).append("$").append(" + ").append(Prices.getPricesDict().get(extra())).append("$");
             return output.toString();
         }
+    }
 
+    // The default implementation of equals() in the class Object says that equality
+    // is the same as object identity. And income and expenses are two distinct instances.
 
+    // public boolean equals(Item item) {};
+
+    // hashCode() returns an integer representing the current instance of the class.
+    @Override
+    public int hashCode() {
+        return this.name.hashCode();
     }
 
 }
