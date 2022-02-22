@@ -61,26 +61,35 @@ public class Item implements Product {
     // Objects are equal when they have the same state (usually comparing variables). Objects are identical when they share the class identity.
     // For example, the expression obj1==obj2 tests the identity, not equality. While the expression obj1.equals(obj2) compares equality.
 
+    @Override
     public boolean equals(Object obj) {
-        // Are the same?
-        if (this == obj) {
-            return true;
-        }
-        // obj is a null reference
-        if (obj == null) {
+        // // Are the same?
+        // if (this == obj) {
+        //     return true;
+        // }
+        // // obj is a null reference
+        // if (obj == null) {
+        //     return false;
+        // }
+        // // different objects classes
+        // if (this.getClass() != obj.getClass()) {
+        //     return false;
+        // }
+        if (obj instanceof Item) {
+            return this.name() == ((Item) obj).name();
+        } else {
             return false;
         }
-        // different objects classes
-        if (this.getClass() != obj.getClass()) {
-            return false;
-        }
-        return this.name() == ((Item) obj).name();
     };
 
     // hashCode() returns an integer representing the current instance of the class.
     @Override
     public int hashCode() {
-        return this.name.hashCode();
+        if (isRegular()) {
+            return this.name.hashCode();
+        } else {
+            return this.extra.hashCode();
+        }
     }
 
 }
