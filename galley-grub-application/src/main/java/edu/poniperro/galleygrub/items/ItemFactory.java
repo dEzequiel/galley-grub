@@ -14,7 +14,15 @@ public class ItemFactory {
     public static Item getItem(String name, double price) {
         Optional<Item> desiredItem = itemMap.stream()
                                                     .filter(i -> i.isRegular() && Objects.equals(i.name(), name))
-    }
+                                                    .findFirst();
 
+        if(desiredItem.isPresent()) {
+            return desiredItem.get();
+        } else {
+            Item desiredItemCreation = new Item(name, price);
+            itemMap.add(desiredItemCreation);
+            return desiredItemCreation;
+    }
+        }
 
 }
