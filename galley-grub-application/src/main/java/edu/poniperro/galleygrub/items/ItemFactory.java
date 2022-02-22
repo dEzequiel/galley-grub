@@ -27,7 +27,8 @@ public class ItemFactory {
 
         public static Item getItem(String name, double price, String extra) {
             Optional<Item> desiredItem = itemMap.stream()
-                                                        .filter(i -> !i.isRegular() && Objects.equals(i.name(), name))
+                                                        .filter(i -> !i.isRegular() && Objects.equals(i.name(), name)
+                                                                                    && Objects.equals(i.extra(), extra))
                                                         .findFirst();
             if (desiredItem.isPresent()) {
                 return desiredItem.get();
