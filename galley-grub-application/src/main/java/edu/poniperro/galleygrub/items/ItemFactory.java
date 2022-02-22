@@ -37,4 +37,8 @@ public class ItemFactory {
                 return desiredItemCreation;
             }
         }
+
+        public static void clear() {
+            itemMap.clear();
+        }
 }
