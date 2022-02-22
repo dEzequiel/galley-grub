@@ -41,4 +41,8 @@ public class ItemFactory {
         public static void clear() {
             itemMap.clear();
         }
+
+        public static int size() {
+            return itemMap.size();
+        }
 }
