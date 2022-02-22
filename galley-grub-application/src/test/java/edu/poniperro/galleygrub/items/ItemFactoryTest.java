@@ -64,18 +64,48 @@ public class ItemFactoryTest {
         Item item = ItemFactory.getItem("Krabby Patty", 1.25, "cheese");
         Item itemClon = ItemFactory.getItem("Krabby Patty", 1.25, "cheese");
 
-        Item itemClonDIffExtra = ItemFactory.getItem("Krabby Patty", 1.25, "sauce");
+        assertEquals(1, ItemFactory.size());
 
         assertTrue("Not the same hashCode", item.equals(itemClon));
         assertTrue("Not the same hashCode", item.hashCode() == itemClon.hashCode());
+
+        Item itemClonDIffExtra = ItemFactory.getItem("Krabby Patty", 1.25, "sauce");
+
         assertTrue("The same hashCode", item.hashCode() != itemClonDIffExtra.hashCode());
-
-
-        // assertEquals(1, ItemFactory.size());
 
         assertTrue("Not the same object", item == itemClon);
         assertFalse("Same object", item == itemClonDIffExtra);
+
+        assertEquals(2, ItemFactory.size());
+
+        Item item3 = ItemFactory.getItem("Krabby Patty", 1.25, "cheese");
+        Item itemClon3 = ItemFactory.getItem("Patty", 1.25, "sauce");
+
+        assertFalse("Same object", item3.equals(itemClon3));
+
+
     }
 
+    @Test
+    public void differentHashCodes() {
+        Item kpattywc = ItemFactory.getItem("Krabby Patty", 1.25, "cheese");
+        Item kpatty = ItemFactory.getItem("Krabby Patty", 1.25);
+
+        assertNotSame(kpattywc.hashCode(), kpatty.hashCode());
+
+    }
+
+    @Test
+    public void getRegularExtraItemTest() {
+
+        Item kpattywc = ItemFactory.getItem("Krabby Patty", 1.25, "cheese");
+        assertNotNull(kpattywc);
+        assertEquals(1, ItemFactory.size());
+
+        Item kpatty = ItemFactory.getItem("Krabby Patty", 1.25);
+        assertNotSame(kpattywc,kpatty);
+        assertEquals(2, ItemFactory.size());
+
+    }
 
 }
