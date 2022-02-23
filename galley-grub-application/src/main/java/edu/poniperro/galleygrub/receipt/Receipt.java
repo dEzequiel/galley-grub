@@ -10,6 +10,7 @@ public class Receipt extends Extra implements Ticket {
 
     private Double total;
     private Comanda order = new Order();
+    private Extra firstExtra;
 
     public Receipt (Comanda order){
         this.order = order;
@@ -23,6 +24,11 @@ public class Receipt extends Extra implements Ticket {
     @Override
     public Double total() {
         return order.getTotal();
+    }
+
+    @Override
+    public void setChain(Extra extraType) {
+        this.firstExtra = extraType;
     }
 
     @Override
