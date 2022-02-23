@@ -2,13 +2,14 @@ package edu.poniperro.galleygrub.receipt;
 
 import java.util.stream.Collectors;
 
+import edu.poniperro.galleygrub.extras.Extra;
 import edu.poniperro.galleygrub.items.Comanda;
 import edu.poniperro.galleygrub.items.Order;
 
-public class Receipt implements Ticket{
+public class Receipt extends Extra implements Ticket {
 
     private Double total;
-    private final Comanda order = new Order();
+    private Comanda order = new Order();
 
     public Receipt (Comanda order){};
 
@@ -19,7 +20,15 @@ public class Receipt implements Ticket{
 
     @Override
     public Double total() {
-        return this.total;
+        return order.getTotal();
+    }
+
+    @Override
+    public void print() {
+        StringBuilder totalOutput = new StringBuilder();
+        totalOutput.append("TOTAL....").append(total().toString()).append("$");
+
+        System.out.println(totalOutput.toString());
 
     }
 
