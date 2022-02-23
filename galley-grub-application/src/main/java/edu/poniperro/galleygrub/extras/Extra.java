@@ -2,6 +2,8 @@ package edu.poniperro.galleygrub.extras;
 
 import java.util.Optional;
 
+import edu.poniperro.galleygrub.order.Comanda;
+
 public abstract class Extra {
     static final String CHEESE = "cheese";
     static final String SAUCE = "sauce";
@@ -10,5 +12,16 @@ public abstract class Extra {
     String extraProduct;
     Optional<Extra> nextExtra;
 
-    
+    public Extra(){}
+
+    public void setNextExtra(Extra extraType) {
+        if (this.nextExtra.isPresent()) {
+            if (this.nextExtra.get() instanceof Regular) {
+                extraProduct = 
+            }
+        }
+    };
+
+    public abstract void sumExtra(Comanda extraPrice);
+
 }
