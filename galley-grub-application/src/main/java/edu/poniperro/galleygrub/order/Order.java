@@ -39,9 +39,9 @@ public class Order implements Comanda{
     public Double getTotal() {
 
         return itemList().stream()
-                                        .filter( o -> o.price() > 0.0)
-                                        .mapToDouble(o -> o.price()).sum();
-
+                                    .filter( o -> o.price() > 0.0)
+                                    .mapToDouble(o -> o.price()).sum();
+                                
     }
 
     @Override
