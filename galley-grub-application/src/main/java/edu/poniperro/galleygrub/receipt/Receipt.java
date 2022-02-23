@@ -3,15 +3,17 @@ package edu.poniperro.galleygrub.receipt;
 import java.util.stream.Collectors;
 
 import edu.poniperro.galleygrub.extras.Extra;
-import edu.poniperro.galleygrub.items.Comanda;
-import edu.poniperro.galleygrub.items.Order;
+import edu.poniperro.galleygrub.order.Comanda;
+import edu.poniperro.galleygrub.order.Order;
 
 public class Receipt extends Extra implements Ticket {
 
     private Double total;
     private Comanda order = new Order();
 
-    public Receipt (Comanda order){};
+    public Receipt (Comanda order){
+        this.order = order;
+    };
 
     @Override
     public Comanda getOrder() {
