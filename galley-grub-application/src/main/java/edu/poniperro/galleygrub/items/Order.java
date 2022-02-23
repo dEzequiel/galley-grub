@@ -2,8 +2,10 @@ package edu.poniperro.galleygrub.items;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.DoubleStream;
 
 public class Order implements Comanda{
+
     private Double total;
     private List<Item> items = new ArrayList<>();
 
@@ -33,12 +35,16 @@ public class Order implements Comanda{
 
     @Override
     public Double getTotal() {
-        return this.total;
+
+        return itemList().stream()
+                                        .filter( o -> o.price() > 0.0)
+                                        .mapToDouble(o -> o.price()).sum();
+
     }
 
     @Override
     public void  updateTotal(Double newTotal) {
-        this.total = newTotal;
+        this.total = getTotal();
     }
 
     @Override
