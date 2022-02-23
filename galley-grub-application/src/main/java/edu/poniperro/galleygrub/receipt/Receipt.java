@@ -32,6 +32,11 @@ public class Receipt extends Extra implements Ticket {
     }
 
     @Override
+    public Extra getChain() {
+        return this.firstExtra;
+    }
+
+    @Override
     public void print() {
         StringBuilder totalOutput = new StringBuilder();
         totalOutput.append("TOTAL....").append(total().toString()).append("$");
