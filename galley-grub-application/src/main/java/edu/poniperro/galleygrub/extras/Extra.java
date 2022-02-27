@@ -10,7 +10,7 @@ public abstract class Extra {
     static final String SIZE_LARGE = "size large";
 
     String extraProduct;
-    Optional<Extra> nextExtra;
+    Optional<Extra> nextExtra = Optional.empty();
 
     public Extra(){}
 
