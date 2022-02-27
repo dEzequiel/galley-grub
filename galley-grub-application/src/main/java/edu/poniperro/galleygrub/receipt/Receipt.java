@@ -36,6 +36,10 @@ public class Receipt extends Extra implements Ticket {
         return this.firstExtra;
     }
 
+    private Boolean isThereChain() {
+        return getChain() != null;
+    }
+
     @Override
     public void print() {
         StringBuilder totalOutput = new StringBuilder();
@@ -43,6 +47,13 @@ public class Receipt extends Extra implements Ticket {
 
         System.out.println(totalOutput.toString());
 
+    }
+
+    @Override
+    public void sumExtra(Comanda extraPrice) {
+        if (isThereChain()) {
+            getChain().sumExtra(order);
+        }
     }
 
 

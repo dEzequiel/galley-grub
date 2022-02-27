@@ -41,12 +41,12 @@ public class Order implements Comanda{
         return itemList().stream()
                                     .filter( o -> o.price() > 0.0)
                                     .mapToDouble(o -> o.price()).sum();
-                                
+
     }
 
     @Override
     public void  updateTotal(Double newTotal) {
-        this.total = getTotal();
+        this.total = getTotal() + newTotal;
     }
 
     @Override
