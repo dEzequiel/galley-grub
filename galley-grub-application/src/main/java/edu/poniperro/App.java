@@ -1,8 +1,17 @@
 package edu.poniperro;
 
+import edu.poniperro.galleygrub.order.Comanda;
+import edu.poniperro.galleygrub.extras.CheeseExtra;
+import edu.poniperro.galleygrub.extras.Extra;
+import edu.poniperro.galleygrub.extras.Regular;
+import edu.poniperro.galleygrub.extras.SauceExtra;
+import edu.poniperro.galleygrub.extras.SizeLargeExtra;
 import edu.poniperro.galleygrub.items.Item;
+import edu.poniperro.galleygrub.order.Order;
 import edu.poniperro.galleygrub.items.Prices;
 import edu.poniperro.galleygrub.items.Product;
+import edu.poniperro.galleygrub.receipt.Receipt;
+import edu.poniperro.galleygrub.receipt.Ticket;
 
 /**
  *
@@ -42,8 +51,8 @@ public class App {
         Prices.initPricesDict();
 
     //     // formatea la salida de cada entrada del diccionario como prefieras
-        System.out.print("\n\t --- PRICES ---  \n");
-        Prices.display();
+        // System.out.print("\n\t --- PRICES ---  \n");
+        // Prices.display();
 
     //     /**
     //      * Crea los items del menu
@@ -104,15 +113,15 @@ public class App {
     //      * ahorrando asi memoria.
     //      */
 
-    //     Comanda order = new Order();
+        Comanda order = new Order();
 
-    //     order.addItem("Krabby Patty", 1.25);
-    //     order.addItem("Coral Bits", 1.00);
-    //     order.addItem("Kelp Rings", 1.50);
-    //     order.addItem("Golden Loaf", 2.00);
-    //     order.addItem("Seafoam Soda", 1.00);
+        order.addItem("Krabby Patty", 1.25);
+        order.addItem("Coral Bits", 1.00);
+        order.addItem("Kelp Rings", 1.50);
+        order.addItem("Golden Loaf", 2.00);
+        order.addItem("Seafoam Soda", 1.00);
 
-    //     order.display();
+        // order.display();
 
     //     /**
     //      * Squidward Tentacles genera el recibo,
@@ -120,9 +129,10 @@ public class App {
     //      * y lo muestra en pantalla.
     //      */
 
-    //     Ticket receipt = new Receipt(order);
-    //     receipt.total();
-    //     receipt.print();
+        Ticket receipt = new Receipt(order);
+        System.out.print(order.size());
+        receipt.total();
+        receipt.print();
 
     //     /**
     //      * Eugene H. Krabs quiere obtener un margen
@@ -139,18 +149,18 @@ public class App {
     //      * pues eso lo haremos con otro componente.
     //      */
 
-    //     System.out.print("\n\t --- GALLEY GRUB ---  \n");
+        System.out.print("\n\t --- GALLEY GRUB ---  \n");
 
-    //     patty = new Item("Krabby Patty", 1.25, "cheese");
-    //     display(patty);
-    //     bits = new Item("Coral Bits", 1.00, "medium");
-    //     display(bits);
-    //     rings = new Item("Kelp Rings", 1.50, "sauce");
-    //     display(rings);
-    //     loaf = new Item("Golden Loaf", 2.00, "sauce");
-    //     display(loaf);
-    //     soda = new Item("Seafoam Soda", 1.00, "large");
-    //     display(soda);
+        patty = new Item("Krabby Patty", 1.25, "cheese");
+        display(patty);
+        bits = new Item("Coral Bits", 1.00, "medium");
+        display(bits);
+        rings = new Item("Kelp Rings", 1.50, "sauce");
+        display(rings);
+        loaf = new Item("Golden Loaf", 2.00, "sauce");
+        display(loaf);
+        soda = new Item("Seafoam Soda", 1.00, "large");
+        display(soda);
 
     //     /**
     //      * Buble Fish sigue zampando
@@ -158,18 +168,18 @@ public class App {
     //      * de extras.
     //      */
 
-    //     order = new Order();
+        order = new Order();
 
-    //     order.addItem("Krabby Patty", 1.25, "cheese");
-    //     order.addItem("Coral Bits", 1.00);
-    //     order.addItem("Kelp Rings", 1.50, "sauce");
-    //     order.addItem("Golden Loaf", 2.00, "sauce");
-    //     order.addItem("Seafoam Soda", 1.00, "large");
-    //     order.addItem("Coral Bits", 1.00, "large");
+        order.addItem("Krabby Patty", 1.25, "cheese");
+        order.addItem("Coral Bits", 1.00);
+        order.addItem("Kelp Rings", 1.50, "sauce");
+        order.addItem("Golden Loaf", 2.00, "sauce");
+        order.addItem("Seafoam Soda", 1.00, "large");
+        order.addItem("Coral Bits", 1.00, "large");
 
     //     // Utiliza el diccionario Prices para incluir
     //     // el precio de los extras en la salida por consola.
-    //     order.display();
+        order.display();
 
 
     //     /**
@@ -190,14 +200,14 @@ public class App {
     //      * El precio total de la comanda se guarda en Order.
     //      */
 
-    //     Extra regular = new Regular(); // suma el precio base
-    //     Extra cheese = new CheeseExtra(); // suma el precio del extra cheese
-    //     Extra sauce = new SauceExtra(); // suma el precio de sauce
-    //     Extra size = new SizeLargeExtra(); // suma el precio del tamanho Large
+        Extra regular = new Regular(); // suma el precio base
+        Extra cheese = new CheeseExtra(); // suma el precio del extra cheese
+        Extra sauce = new SauceExtra(); // suma el precio de sauce
+        Extra size = new SizeLargeExtra(); // suma el precio del tamanho Large
 
-    //     regular.setNextExtra(cheese);
-    //     cheese.setNextExtra(sauce);
-    //     sauce.setNextExtra(size);
+        regular.setNextExtra(cheese);
+        cheese.setNextExtra(sauce);
+        sauce.setNextExtra(size);
 
     //     /**
     //      * Squidward Tentacles genera el recibo,
@@ -205,17 +215,17 @@ public class App {
     //      * y lo muestra en pantalla.
     //      */
 
-    //     System.out.print("\n\t --- PRINTIG RECEIPT BIPBIPBIP ---  \n");
+        System.out.print("\n\t --- PRINTIG RECEIPT BIPBIPBIP ---  \n");
 
-    //     Ticket receiptExtra = new Receipt(order);
-    //     receiptExtra.setChain(regular);
+        Ticket receiptExtra = new Receipt(order);
+        receiptExtra.setChain(regular);
 
-    //     receiptExtra.total();
-    //     receiptExtra.print();
-    // }
+        receiptExtra.total();
+        receiptExtra.print();
+    }
 
 
-}
+
     private static void display(Product item) {
         System.out.print("\t" + item.toString() + "\n");
     }
