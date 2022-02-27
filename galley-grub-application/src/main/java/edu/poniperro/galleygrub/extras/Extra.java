@@ -15,11 +15,7 @@ public abstract class Extra {
     public Extra(){}
 
     public void setNextExtra(Extra extraType) {
-        if (this.nextExtra.isPresent()) {
-            if (this.nextExtra.get() instanceof Regular) {
-                extraProduct = 
-            }
-        }
+        this.nextExtra = Optional.of(extraType);
     };
 
     public abstract void sumExtra(Comanda extraPrice);
